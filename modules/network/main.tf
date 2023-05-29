@@ -44,8 +44,8 @@ data "aws_availability_zones" "available" {}
 
 resource "random_shuffle" "azs" {
   input        = data.aws_availability_zones.available.names
-  count        = var.N_Subnets
-  result_count = 1
+  count        = 1
+  result_count = local.N_public_subnets
 }
 
 data "aws_subnet" "info" {
@@ -113,11 +113,11 @@ resource "aws_subnet" "this" {
   vpc_id                  = aws_vpc.this.id
   cidr_block              = each.value.cidr
   map_public_ip_on_launch = each.value.type == "public" ? true : false
-  availability_zone       = element(random_shuffle.azs[each.value.index].result, 0)
+  availability_zone       = element(random_shuffle.azs[0].result, each.value.index)
 
   tags = merge(
     {
-      "Name" = "${each.value.name}-${each.value.type}}"
+      "Name" = "${each.value.name}-${each.value.type}"
       "Type" = each.value.type
     },
     var.Tags,
