@@ -19,7 +19,7 @@ variable "N_Subnets" {
   type        = number
 
   validation {
-    condition     = var.N_Subnets > 2 && var.N_Subnets < 6
+    condition     = var.N_Subnets >= 2 && var.N_Subnets <= 6
     error_message = "The number of subnets must be between 2 and 6"
   }
 }
