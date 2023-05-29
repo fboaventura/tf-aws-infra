@@ -1,0 +1,1 @@
+../modules/golden_image/README.md
