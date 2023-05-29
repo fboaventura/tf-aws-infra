@@ -37,7 +37,7 @@ jobs:
         run: |
           cp README.md docs/README.md
           cp modules/golden_image/README.md docs/module_golden_image.md
-          cp modules/instance/README.md docs/module_instance.md
+          cp modules/instances/README.md docs/module_instance.md
             cp modules/network/README.md docs/module_network.md
           git config --global user.name "github-actions[bot]"
           git config --global user.email "github-actions[bot]@users.noreply.github.com"
