@@ -1,0 +1,54 @@
+version: ">= 0.14.0"
+
+formatter: markdown table
+header-from: main.tf
+settings:
+  anchor: true
+  color: true
+  default: true
+  description: true
+  escape: true
+  hide-empty: true
+  indent: 2
+  lock-file: true
+  read-comments: true
+  required: true
+  sensitive: true
+  type: true
+
+sections:
+  show:
+    - data-sources
+    - header
+    - footer
+    - inputs
+    - modules
+    - outputs
+    - providers
+    - requirements
+    - resources
+
+content: |-
+  {{ .Header }}
+
+  {{ .Providers }}
+
+  {{ .Requirements }}
+
+  {{ .Inputs }}
+
+  {{ .Outputs }}
+
+  {{ .Modules }}
+
+  {{ .Resources }}
+
+  {{ .Footer }}
+
+output:
+  file: "README.md"
+  mode: inject
+  template: |-
+    <!-- BEGIN_TF_DOCS -->
+    {{ .Content }}
+    <!-- END_TF_DOCS -->

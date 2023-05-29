@@ -1,0 +1,32 @@
+name: Generate terraform documentation
+on:
+  pull_request:
+    branches:
+      - dev
+      - 'feature/**'
+      - 'fix/**'
+      - staging
+
+jobs:
+  docs:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3.0.2
+        with:
+          ref: ${{ github.event.pull_request.head.ref }}
+      - name: make env bar
+        run: |
+          string="dirs_list=";for dir in $(ls -p modules/* ./*.tf | grep / | sed 's|[:/]$||'); do ls "$dir/"*".tf" &>/dev/null && string+="$dir,"; done; echo $string | sed 's|,$||' >>$GITHUB_ENV
+      - name: debug
+        run: |
+          echo "##### DEBUG ######"
+          echo ${{ env.dirs_list }}
+          echo $GITHUB_ENV
+      - name: Render terraform docs and push changes back to PR
+        uses: terraform-docs/gh-actions@v1.0.0
+        with:
+          working-dir: ${{ env.dirs_list }}
+          config-file: .terraform-docs.yml
+          output-file: README.md
+          git-push: "true"
+          git-commit-message: "Automated README.md generation"
