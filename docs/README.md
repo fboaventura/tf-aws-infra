@@ -98,8 +98,7 @@ This module will call the following modules:
 
 | Name | Version |
 |------|---------|
-| <a name="provider_http"></a> [http](#provider\_http) | n/a |
-| <a name="provider_local"></a> [local](#provider\_local) | n/a |
+| <a name="provider_http"></a> [http](#provider\_http) | 3.3.0 |
 
 ## Requirements
 
@@ -142,8 +141,6 @@ This module will call the following modules:
 
 | Name | Type |
 |------|------|
-| [local_file.golden_image](https://registry.terraform.io/providers/hashicorp/local/latest/docs/resources/file) | resource |
-| [local_file.network](https://registry.terraform.io/providers/hashicorp/local/latest/docs/resources/file) | resource |
 | [http_http.local_ip](https://registry.terraform.io/providers/hashicorp/http/latest/docs/data-sources/http) | data source |
 
 
