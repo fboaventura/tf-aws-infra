@@ -148,5 +148,11 @@ This module will call the following modules:
 
 ## Known Issues
 
+These issues are known and don't have a straightforward and easy solution at the moment, if at all.
+
 - Sometimes the Golden Image creation process fails due to some Ubuntu update/upgrade/install errors. 
+    If this happens, you can try to run the process again and it will probably work.
+- There is a minimal chance of multiple subnets end up being created at the same AZ, which will incur in error when creating 
+  the ALB and attaching it to the public subnets, since it won't be able to attach to the same AZ twice. 
+    This is due to the random nature of the AZ selection. 
     If this happens, you can try to run the process again and it will probably work.
