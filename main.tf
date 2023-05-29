@@ -6,9 +6,9 @@
  *
  * This module will call the following modules:
  *
- *  - Network
- *  - Golden Image
- *  - Instances
+ *  - [Network](/modules/network/README.md)
+ *  - [Golden Image](/modules/golden_image/README.md)
+ *  - [Instances](/modules/instances/README.md)
  *
  */
 
@@ -83,14 +83,4 @@ module "instances" {
   local_ip = local.local_ip
 
   depends_on = [module.network, module.golden_image]
-}
-
-resource "local_file" "network" {
-  filename = "./resource/network.out"
-  content  = module.network.Network
-}
-
-resource "local_file" "golden_image" {
-  filename = "./resource/golden_image.out"
-  content  = module.golden_image.Manifest
 }
