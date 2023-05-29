@@ -196,6 +196,10 @@ resource "aws_instance" "bastion" {
     Name = "${var.Name}-bastion"
   }, var.Tags)
 
+  tags_all = merge({
+    Name = "${var.Name}-bastion"
+  }, var.Tags)
+
 }
 
 /*********************************
@@ -218,9 +222,12 @@ resource "aws_instance" "private" {
   }, var.Tags)
 
   volume_tags = merge({
-    Name = "${var.Name}-pvt{count.index}"
+    Name = "${var.Name}-pvt-${count.index}"
   }, var.Tags)
 
+  tags_all = merge({
+    Name = "${var.Name}-pvt-${count.index}"
+  }, var.Tags)
 }
 
 /*********************************
