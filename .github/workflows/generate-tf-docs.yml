@@ -1,5 +1,8 @@
 name: Generate terraform documentation
 on:
+  push:
+    branches:
+      - prod
   pull_request:
     branches:
       - dev
