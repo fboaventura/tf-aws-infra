@@ -27,7 +27,12 @@ docs:
 	terraform-docs markdown . -c .terraform-docs.yml
 	for module in $(MODULES); do \
 		terraform-docs markdown modules/$$module -c .terraform-docs.yml; \
+	done; \
+	cp README.md docs/README.md; \
+  for module in $(MODULES); do \
+		cp modules/$$module/README.md docs/module_$$module.md; \
 	done
+
 
 init:
 	terraform init

@@ -90,15 +90,9 @@ This is the main Terraform file for the AWS infrastructure.
 
 This module will call the following modules:
 
- - Network
- - Golden Image
- - Instances
-
-## Usage
-
- ```bash
-   make apply
- ```
+ - [Network](/modules/network/README.md)
+ - [Golden Image](/modules/golden\_image/README.md)
+ - [Instances](/modules/instances/README.md)
 
 ## Providers
 
