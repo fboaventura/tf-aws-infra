@@ -2,7 +2,7 @@
 
 The challenge is to create an AWS infrastructure, using IaC to match the following diagram:
 
-![AWS Infrastructure](./docs/images/aws_infrastructure.png)
+![AWS Infrastructure](/docs/images/aws_infrastructure.png)
 
 ## Requirements
 
